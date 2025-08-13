@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GPA Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+        }
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            color: gray;
+            font-size: 14px;
+        }
+        input[type=number] {
+            width: 60px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 8px 15px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>University of Swat GPA Calculator</h1>
+    <form method="POST">
+        {% for i in range(1,8) %}
+            Subject {{ i }} Marks: <input type="number" name="sub{{ i }}" min="0" max="100" required><br>
+        {% endfor %}
+        <button type="submit">Calculate</button>
+    </form>
+
+    {% if gpa is not none %}
+        <h2>Percentage: {{ percentage | round(2) }}%</h2>
+        <h2>GPA: {{ gpa }}</h2>
+    {% endif %}
+
+    <footer>
+        &copy; 2025 Muhammad Azan
+    </footer>
+</body>
+</html>
